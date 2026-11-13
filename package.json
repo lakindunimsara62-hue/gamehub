@@ -1,0 +1,24 @@
+{
+  "name": "gamehub-platform",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/web",
+    "apps/api",
+    "apps/desktop"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w @gamehub/api\" \"npm run dev -w @gamehub/web\"",
+    "desktop": "npm run start -w @gamehub/desktop",
+    "build": "npm run build -w @gamehub/web",
+    "dist:win": "npm run dist:win -w @gamehub/desktop"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "electron": "^33.4.11"
+  },
+  "allowScripts": {
+    "electron@33.4.11": true,
+    "esbuild@0.25.12": true
+  }
+}
